@@ -1,0 +1,135 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{#
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+{{ form_end(form) }}
+#}
+
+<div id="page-title" class="padding-tb-30px gradient-white">
+    <div class="container text-center">
+        <ol class="breadcrumb opacity-5">
+            <li><a href="{{ path("homepage") }}">Accueil
+                </a></li>
+            <li class="active">S'enregistrer</li>
+        </ol>
+        <h1 class="font-weight-300">Inscription</h1>
+    </div>
+</div>
+
+<div class="container margin-bottom-100px">
+    <div id="log-in" class="site-form log-in-form box-shadow border-radius-10">
+        <div class="form-output">
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+            <div class="form-group label-floating">
+                <label class="control-label">Email</label>
+                {{ form_widget(form.email , {"attr" : {"class" :  "form-control"} }) }}
+            </div>
+            <div class="form-group label-floating">
+                <label class="control-label">Nom d'utilisateur</label>
+                {{ form_widget(form.username , {"attr" : {"class" :  "form-control"} }) }}
+            </div>
+            <div class="form-group label-floating">
+                <label class="control-label">Mot de passe</label>
+                {{ form_widget(form.plainPassword.first , {"attr" : {"class" :  "form-control"} }) }}
+            </div>
+            <div class="form-group label-floating">
+                <label class="control-label">Répéter le mot de passe</label>
+                {{ form_widget(form.plainPassword.second , {"attr" : {"class" :  "form-control"} }) }}
+            </div>
+            <div class="form-group label-floating">
+                <label class="control-label">Nom complet</label>
+                {{ form_widget(form.name , {"attr" : {"class" :  "form-control"} }) }}
+            </div>
+            <div class="form-group label-floating">
+                <label class="form-switch">
+                    {{ form_widget(form.doctor , {}) }}
+                    <i></i> Etes-vous un medecin ? </label>
+            </div>
+            <div class="remember">
+                <div class="checkbox">
+                    <label>
+                        <input name="optionsCheckboxes" type="checkbox">
+                        I accept the <a href="#">Terms and Conditions</a> of the website
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-md btn-primary full-width">{{ 'registration.submit'|trans }}</button>
+            <div class="or"></div>
+            <p>Vous avez un compte? <a
+                        href="{{ path('fos_user_security_login') }}"> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            </p>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+
+
+{% block stylesheets %}
+    <style type="text/css">
+        .form-switch i {
+            position: relative;
+            display: inline-block;
+            margin-right: .5rem;
+            width: 46px;
+            height: 26px;
+            background-color: #e6e6e6;
+            border-radius: 23px;
+            vertical-align: text-bottom;
+            transition: all 0.3s linear;
+        }
+
+        .form-switch i::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 42px;
+            height: 22px;
+            background-color: #fff;
+            border-radius: 11px;
+            transform: translate3d(2px, 2px, 0) scale3d(1, 1, 1);
+            transition: all 0.25s linear;
+        }
+
+        .form-switch i::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 22px;
+            height: 22px;
+            background-color: #fff;
+            border-radius: 11px;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24);
+            transform: translate3d(2px, 2px, 0);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .form-switch:active i::after {
+            width: 28px;
+            transform: translate3d(2px, 2px, 0);
+        }
+
+        .form-switch:active input:checked + i::after {
+            transform: translate3d(16px, 2px, 0);
+        }
+
+        .form-switch input {
+            display: none;
+        }
+
+        .form-switch input:checked + i {
+            background-color: #4BD763;
+        }
+
+        .form-switch input:checked + i::before {
+            transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0);
+        }
+
+        .form-switch input:checked + i::after {
+            transform: translate3d(22px, 2px, 0);
+        }
+    </style>
+{% endblock stylesheets %}

@@ -1,0 +1,48 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+
+    <div id="page-title" class="padding-tb-30px gradient-white">
+        <div class="container text-center">
+            <ol class="breadcrumb opacity-5">
+                <li><a href="{{ path("homepage") }}">Accueil
+                        </a></li>
+                <li class="active">Profil</li>
+            </ol>
+            <h1 class="font-weight-300">S'enregistrer</h1>
+        </div>
+    </div>
+    <div class="container margin-bottom-80px">
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-12 sm-mb-40px">
+                <div class="pricing hover-effect">
+                    <div class="pricing-head text-center">
+                        <h3 class="font-weight-700 padding-40px background-grey-2 margin-0px text-white">
+                            <span class=" z-index-2 position-relative d-block">
+                                    Un visiteur du site
+                            </span>
+                        </h3>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="{{ path("fos_user_registration_register") }}"
+                           class="btn btn-block background-img-white rounded-0">S'enregistrer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6  col-sm-12 sm-mb-40px">
+                <div class="pricing hover-effect box-shadow">
+                    <div class="pricing-head text-center">
+                        <h3 class="font-weight-700 padding-40px background-main-color margin-0px text-white">
+                            <span class=" z-index-2 position-relative d-block">
+                                    Un docteur
+                            </span>
+                        </h3>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="{{ path("fos_user_registration_register") }}"
+                           class="btn btn-block background-img-white rounded-0">S'enregistrer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
