@@ -165,4 +165,63 @@ class User extends BaseUser
     {
         return $this->tel;
     }
+
+    /**
+     * @ORM\Column(name="accroche", type="text" , nullable=true)
+     */
+    private $accroche;
+
+    /**
+     * Set accroche
+     *
+     * @param string $accroche
+     *
+     * @return User
+     */
+    public function setAccroche($accroche)
+    {
+        $this->accroche = $accroche;
+
+        return $this;
+    }
+
+    /**
+     * Get accroche
+     *
+     * @return string
+     */
+    public function getAccroche()
+    {
+        return $this->accroche;
+    }
+
+
+    /**
+     * @ORM\Column(name="details", type="text" , nullable=true)
+     */
+    private $details;
+
+    /**
+     * Set details
+     *
+     * @param string $details
+     *
+     * @return User
+     */
+    public function setDetails($details)
+    {
+        $this->details = $details;
+
+        return $this;
+    }
+
+    /**
+     * Get details
+     *
+     * @return string
+     */
+    public function getDetails()
+    {
+        return $this->details;
+    }
 }
